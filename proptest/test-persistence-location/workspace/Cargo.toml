@@ -1,4 +1,4 @@
-[workspace]
+#[workspace]
 members = ["member"]
 # Ensure that proptest itself is not dragged in as part of the workspace
 exclude = ["../..", "../../.."]
