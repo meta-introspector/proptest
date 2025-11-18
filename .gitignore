@@ -11,3 +11,4 @@ persistence-test.txt
 .idea
 
 /.direnv
+process-repo.log
