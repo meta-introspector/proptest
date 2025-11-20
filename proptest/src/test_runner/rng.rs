@@ -387,14 +387,14 @@ impl TestRng {
                 rng: match algorithm {
                     RngAlgorithm::XorShift => {
                         let rng = match seed {
-                            RngSeed::Random => XorShiftRng::from_os_rng(),
+                            RngSeed::Random => XorShiftRng::from_rng(&mut rand::thread_rng()),
                             RngSeed::Fixed(seed) => XorShiftRng::seed_from_u64(seed),
                         };
                         TestRngImpl::XorShift(rng)
                     }
                     RngAlgorithm::ChaCha => {
                         let rng = match seed {
-                            RngSeed::Random => ChaChaRng::from_os_rng(),
+                            RngSeed::Random => ChaChaRng::from_rng(&mut rand::thread_rng()),
                             RngSeed::Fixed(seed) => ChaChaRng::seed_from_u64(seed),
                         };
                         TestRngImpl::ChaCha(rng)
@@ -404,7 +404,7 @@ impl TestRng {
                     }
                     RngAlgorithm::Recorder => {
                         let rng =  match seed {
-                            RngSeed::Random => ChaChaRng::from_os_rng(),
+                            RngSeed::Random => ChaChaRng::from_rng(&mut rand::thread_rng()),
                             RngSeed::Fixed(seed) => ChaChaRng::seed_from_u64(seed),
                         };
                         TestRngImpl::Recorder {rng, record: Vec::new()}

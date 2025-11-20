@@ -18,6 +18,7 @@ Hypothesis-like property-based testing and shrinking.
 """
 
 [features]
+#specialization = []
 
 default = ["std", "fork", "timeout", "bit-set"]
 # Everything in `default` that doesn't break code coverage builds
@@ -39,7 +40,7 @@ no_std = ["num-traits/libm"]
 alloc = []
 
 # Use a hardware random number generator (instead of static seed) for x86 no_std targets
-hardware-rng = ["x86"]
+
 
 # Enables use of the "fork" feature.
 #
@@ -75,7 +76,7 @@ rand_xorshift = { workspace = true }
 rand_chacha = { workspace = true }
 rusty-fork = { workspace = true, optional = true }
 tempfile = { workspace = true, optional = true }
-x86 = { workspace = true, optional = true }
+
 
 [package.metadata.docs.rs]
 all-features = true
